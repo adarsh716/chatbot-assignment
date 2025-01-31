@@ -168,7 +168,7 @@ function App() {
       const userMessage = { type: "user", content: input };
       setMessages(prev => [...prev, userMessage]);
       
-      const result = await axios.post("http://localhost:5000/api/chat", { input });
+      const result = await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_ENDPOINT}/api/chat`, { input });
       const botMessage = { type: "bot", content: result.data.message };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
