@@ -19,7 +19,6 @@ import {
 import SendIcon from "@mui/icons-material/Send";
 import "highlight.js/styles/vs2015.css";
 
-// Create dark theme
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
@@ -143,7 +142,6 @@ const InputWrapper = styled(Box)(({ theme }) => ({
   margin: '0 auto',
 }));
 
-// Add global animations
 const globalStyles = `
   @keyframes slideInLeft {
     from { transform: translateX(-20px); opacity: 0; }

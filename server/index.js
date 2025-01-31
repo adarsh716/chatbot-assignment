@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors"); // Import cors package
+const cors = require("cors"); 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
 
@@ -7,25 +7,25 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: "*", // Allow both local and production frontend
-  methods: ['GET', 'POST'], // Specify allowed methods
-  allowedHeaders: ['Content-Type'], // Specify allowed headers
+  origin: "*", 
+  methods: ['GET', 'POST'], 
+  allowedHeaders: ['Content-Type'], 
 };
 
 app.use(cors(corsOptions)); 
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // Ensure this is the correct model name
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); 
 
 // Endpoint for chat
 app.post("/api/chat", async (req, res) => {
-  const userInput = req.body.input; // Get user input from frontend
+  const userInput = req.body.input; 
 
   try {
     const result = await model.generateContent(userInput);
-    const aiResponse = result.response.text(); // Get the generated response from the AI
-    res.json({ message: aiResponse }); // Send the AI response back to the frontend
+    const aiResponse = result.response.text(); 
+    res.json({ message: aiResponse }); 
   } catch (err) {
     console.error("Error generating content:", err);
     res.status(500).json({ error: "Failed to generate response" });
