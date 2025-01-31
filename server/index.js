@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: ['http://localhost:5173', 'https://skcadarshchatbot.vercel.app'], // Allow both local and production frontend
+  origin: "*", // Allow both local and production frontend
   methods: ['GET', 'POST'], // Specify allowed methods
   allowedHeaders: ['Content-Type'], // Specify allowed headers
 };
