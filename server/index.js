@@ -6,7 +6,13 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors()); 
+const corsOptions = {
+  origin: ['http://localhost:5173', 'https://your-frontend-domain.com'], // Allow both local and production frontend
+  methods: ['GET', 'POST'], // Specify allowed methods
+  allowedHeaders: ['Content-Type'], // Specify allowed headers
+};
+
+app.use(cors(corsOptions)); 
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
