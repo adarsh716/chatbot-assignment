@@ -54,7 +54,7 @@ const AnimatedBackground = styled(Box)({
 });
 
 const ChatContainer = styled(Container)(({ theme }) => ({
-  height: "100vh",
+  height: "100dvh",
   width:'100%',
   display: "flex",
   flexDirection: "column",
